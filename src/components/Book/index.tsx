@@ -3,7 +3,17 @@ import { BookType } from '../../@types/context';
 import { useGlobal } from '../../contexts/global';
 import Swal from 'sweetalert2'
 
-import { Container, Image, Title, Authors, Published, Description, Btn } from './styles';
+import { 
+  Container, 
+  Image, 
+  Title, 
+  Authors, 
+  Published, 
+  Description, 
+  Btn, 
+  IconMinus, 
+  IconPlus 
+} from './styles';
 
 type BookPropsType = {
   item: BookType
@@ -60,11 +70,11 @@ const Book: React.FC<BookPropsType> = ({ item }) => {
   const remFavorites = () => {
     const params: SwalConfirmationType = {
       title: 'Atenção',
-      text: 'Deseja Realmente excluir esse favorito?',
+      text: 'Deseja Realmente remover esse livro?',
       type: 'question',
       showCancelButton: true,
       confirmButtonColor: '#c70000',
-      confirmButtonText: 'Sim, Excluir',
+      confirmButtonText: 'Sim, Remover',
       cancelButtonColor: '#1C7CD5',
       cancelButtonText: 'Não',
     }
@@ -90,8 +100,8 @@ const Book: React.FC<BookPropsType> = ({ item }) => {
       {item.published_at ? (<Published>Publicado em {item.published_at}</Published>) : null}
       <Description>{getDescription()}</Description>
       {checkIfHasInFavorites() ? 
-        (<Btn onClick={remFavorites} isAdd={false} >Rem Favoritos</Btn>) : 
-        (<Btn onClick={addFavorites} isAdd={true}>Add Favoritos</Btn>)}
+        (<Btn onClick={remFavorites} isAdd={false} title="Remover dos Favoritos"><IconMinus /> Favoritos</Btn>) : 
+        (<Btn onClick={addFavorites} isAdd={true} title="Adicionar aos Favoritos"><IconPlus /> Favoritos</Btn>)}
     </Container>
   );
 }

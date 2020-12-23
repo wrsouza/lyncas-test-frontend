@@ -14,6 +14,5 @@ export const BookList = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
   margin-top: 20px;
 `

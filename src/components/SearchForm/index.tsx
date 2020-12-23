@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2'
 
 import api from '~/services/api'
@@ -8,7 +8,7 @@ import { Container, Input, Btn, BtnIcon } from './styles';
 
 const SearchForm: React.FC = () => {
   const [inputSearch, setInputSearch] = useState('')
-  const { setIsLoaderVisible, setBooks } = useGlobal()
+  const { setIsLoaderVisible, setBooks, search, setSearch, setCurrentPage, setTotalPage } = useGlobal()
 
   const changeInput = (event: any) => {
     setInputSearch(event.target.value)
@@ -29,6 +29,9 @@ const SearchForm: React.FC = () => {
       const url = `google-books?search=${encodeURIComponent(inputSearch)}`
       const response = (await api.get(url)).data;
       setBooks(response.data)
+      setSearch(inputSearch)
+      setCurrentPage(response.current_page)
+      setTotalPage(response.last_page)
       setIsLoaderVisible(false)
     } catch (err) {
       setIsLoaderVisible(false)
@@ -37,9 +40,13 @@ const SearchForm: React.FC = () => {
     }
   }
 
+  useEffect(() => {
+    setInputSearch(search)
+  }, [])
+
   return (
     <Container onSubmit={searchApi}>
-      <Input onKeyUp={changeInput} />
+      <Input onChange={changeInput} value={inputSearch} placeholder="Pesquise Aqui" />
       <Btn onClick={searchApi}>
         <BtnIcon size={18} />
       </Btn>

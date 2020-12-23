@@ -6,10 +6,11 @@ export const Container = styled.form`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: stretch;
+  justify-content: center;
 `
 
 export const Input = styled.input`
+  max-width: 600px;
   width: 100%;
   height: 50px;
   padding-left: 10px;
@@ -20,6 +21,10 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   outline: 0px;
   background-color: #f5f5f5;
+  
+  &::placeholder {
+    color: #aaa;
+  }
 
   &:focus {
     background-color: rgba(0, 100, 200, 0.05);

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 
 export const Container = styled.div`
   display: flex;
@@ -46,6 +47,9 @@ type BtnPropsType = {
 }
 
 export const Btn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 7px 0;
   font-size: 13px;
@@ -55,4 +59,18 @@ export const Btn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+`
+
+export const IconMinus = styled(FaMinusCircle).attrs({
+  color: '#fff',
+  size: 14
+})`
+  margin-right: 5px;
+`
+
+export const IconPlus = styled(FaPlusCircle).attrs({
+  color: '#fff',
+  size: 14
+})`
+  margin-right: 5px;
 `

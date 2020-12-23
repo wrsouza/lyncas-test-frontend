@@ -7,6 +7,9 @@ export const GlobalProvider: React.FC<GlobalPropsType> = ({ children }) => {
   const [isLoaderVisible, setIsLoaderVisible] = useState<boolean>(false)
   const [books, setBooks] = useState<BookType[]>([])
   const [myFavorites, setMyFavorites] = useState<BookType[]>([])
+  const [search, setSearch] = useState<string>('')
+  const [current_page, setCurrentPage] = useState<number>(1)
+  const [total_page, setTotalPage] = useState<number>(1)
 
   useEffect(() => {
     const getMyFavorites = () => {
@@ -26,7 +29,13 @@ export const GlobalProvider: React.FC<GlobalPropsType> = ({ children }) => {
         books,
         setBooks,
         myFavorites,
-        setMyFavorites
+        setMyFavorites,
+        search,
+        setSearch,
+        current_page,
+        setCurrentPage,
+        total_page,
+        setTotalPage
       }}>
       {children}
     </GlobalContext.Provider>

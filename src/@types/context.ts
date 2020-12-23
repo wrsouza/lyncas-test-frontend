@@ -12,10 +12,16 @@ export type BookType = {
 export type GlobalContextType = {
   isLoaderVisible: boolean
   setIsLoaderVisible: Dispatch<SetStateAction<boolean>>
-  books: BookType[],
-  setBooks: Dispatch<SetStateAction<BookType[]>>,
-  myFavorites: BookType[],
-  setMyFavorites: Dispatch<SetStateAction<BookType[]>>,
+  books: BookType[]
+  setBooks: Dispatch<SetStateAction<BookType[]>>
+  myFavorites: BookType[]
+  setMyFavorites: Dispatch<SetStateAction<BookType[]>>
+  search: string
+  setSearch: Dispatch<SetStateAction<string>>
+  current_page: number
+  setCurrentPage: Dispatch<SetStateAction<number>>
+  total_page: number
+  setTotalPage: Dispatch<SetStateAction<number>>
 }
 
 export type GlobalPropsType = {

@@ -15,7 +15,7 @@
 - Listar e excluir livros favoritos
 - Exibir alerta de confirmaçao de exclusão
 
-### Instruções para Instalação do Backend
+### Instruções para Instalação do Frontend
 
 Arquivo .env
 
